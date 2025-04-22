@@ -3,6 +3,7 @@ services:
     name: dhaman-vastra
     buildCommand: npm run build
     startCommand: npm start
+    publishDir: build
     envVars:
       - key: NODE_VERSION
         value: 16
