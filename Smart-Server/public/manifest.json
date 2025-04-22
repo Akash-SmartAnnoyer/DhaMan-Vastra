@@ -1,0 +1,28 @@
+{
+  "short_name": "DhaMan Vastra",
+  "name": "DhaMan Vastra Collection",
+  "icons": [
+    {
+      "src": "/assets/logo-transparent-png.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo-transparent-png.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/logo-transparent-png.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ff4d4f",
+  "background_color": "#ffffff",
+  "gcm_sender_id": "796625414381",
+  "service_worker": "/firebase-messaging-sw.js"
+}

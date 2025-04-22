@@ -1,0 +1,333 @@
+/* Modern Header.css */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header--expanded {
+  height: 70px;
+  background: linear-gradient(to bottom, #ffffff 60%, rgba(255, 255, 255, 0.95));
+  box-shadow: none;
+}
+
+.header--collapsed {
+  height: 64px;
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+.header__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  transition: all 0.3s ease;
+}
+
+.header__location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.header__location:hover {
+  background: #f5f5f5;
+}
+
+.header__location-text {
+  font-weight: 600;
+  color: #1c1c1c;
+}
+
+.header__location-subtext {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.header__logo-image {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.header__logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header__search-row {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.header--collapsed .header__search-row {
+  height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 1rem 0 3rem;
+  border: none;
+  border-radius: 12px;
+  background: #f5f5f5;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.header__icon {
+  width: 24px;
+  height: 24px;
+  color: #1c1c1c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header__icon:hover {
+  color: #ff4b2b;
+  transform: scale(1.1);
+}
+
+.header__cart-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4b2b;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.header__restaurant-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.header__restaurant-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .header--expanded {
+    height: auto;
+  }
+
+  .header__content {
+    gap: 0.5rem;
+  }
+
+  .header__top-row {
+    height: 56px;
+  }
+
+  .header__location-subtext {
+    display: none;
+  }
+
+  .header__search-row {
+    padding: 0.5rem 0;
+  }
+
+  .search-input {
+    height: 40px;
+  }
+}
+
+/* Animations */
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideInDown 0.3s ease-out;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.header__admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__admin-actions .header__restaurant-logo-container {
+  margin-right: 1rem;
+}
+
+.header__admin-actions .header__icon {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.header__admin-actions .header__icon:hover {
+  color: #ff4d4f;
+}
+
+/* Update existing styles */
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+/* Add these styles for the sign-out modal */
+:where(.css-dev-only-do-not-override).ant-modal .ant-modal-title {
+  color: #1c1c1c;
+  font-weight: 600;
+}
+
+:where(.css-dev-only-do-not-override).ant-modal .ant-modal-content {
+  border-radius: 12px;
+  padding: 24px;
+}
+
+:where(.css-dev-only-do-not-override).ant-modal .ant-btn-primary {
+  background: #ff4b2b;
+  border-color: #ff4b2b;
+}
+
+:where(.css-dev-only-do-not-override).ant-modal .ant-btn-primary:hover {
+  background: #ff6b4a;
+  border-color: #ff6b4a;
+}
+
+:where(.css-dev-only-do-not-override).ant-modal .ant-btn-default {
+  border-color: #ff4b2b;
+  color: #ff4b2b;
+}
+
+:where(.css-dev-only-do-not-override).ant-modal .ant-btn-default:hover {
+  color: #ff6b4a;
+  border-color: #ff6b4a;
+}
+
+:where(.css-dev-only-do-not-override).ant-modal .ant-modal-close {
+  color: #666;
+}
+
+:where(.css-dev-only-do-not-override).ant-modal .ant-modal-close:hover {
+  color: #ff4b2b;
+}
+
+/* Update the modal button styles with more specific selectors */
+:where(.css-dev-only-do-not-override-).ant-modal .ant-modal-content .ant-modal-footer .ant-btn-default {
+  border-color: #ff4b2b;
+  color: #ff4b2b;
+  box-shadow: none;
+}
+
+:where(.css-dev-only-do-not-override-).ant-modal .ant-modal-content .ant-modal-footer .ant-btn-default:hover {
+  color: #ff6b4a;
+  border-color: #ff6b4a;
+  background: rgba(255, 75, 43, 0.1);
+}
+
+:where(.css-dev-only-do-not-override-).ant-modal .ant-modal-content .ant-modal-footer .ant-btn-primary {
+  background: #ff4b2b;
+  border-color: #ff4b2b;
+  box-shadow: none;
+}
+
+:where(.css-dev-only-do-not-override-).ant-modal .ant-modal-content .ant-modal-footer .ant-btn-primary:hover {
+  background: #ff6b4a;
+  border-color: #ff6b4a;
+}
