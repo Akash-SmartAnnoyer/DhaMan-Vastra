@@ -1,0 +1,12 @@
+{
+  "name": "dhaman-vastra",
+  "version": "1.0.0",
+  "description": "DhaMan Vastra E-commerce Website",
+  "scripts": {
+    "build": "cd Smart-Server && npm install && npm run build && cp -f public/firebase-messaging-sw.js build/ 2>/dev/null || true && cp public/_redirects build/_redirects 2>/dev/null || true",
+    "start": "cd Smart-Server && npx serve -s build"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+} 
