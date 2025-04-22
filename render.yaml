@@ -1,8 +1,16 @@
 services:
   - type: web
     name: dhaman-vastra
-    buildCommand: cd Smart-Server && npm install && npm run build
-    startCommand: cd Smart-Server && npx serve -s build
+    rootDir: Smart-Server
+    buildCommand: |
+      cd Smart-Server
+      npm install
+      npm run build
+      cp -f public/firebase-messaging-sw.js build/ 2>/dev/null || true
+      cp public/_redirects build/_redirects 2>/dev/null || true
+    startCommand: |
+      cd Smart-Server
+      npx serve -s build
     envVars:
       - key: NODE_VERSION
         value: 16
